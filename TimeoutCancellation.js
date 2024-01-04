@@ -5,15 +5,13 @@
  * @return {Function}
  */
 
-const cancellable = function(fn, args, t, cancelTimeMs) {
+const cancellable = function(fn, args, t) {
     const timeoutId = setTimeout(() => {
         fn(...args);
     }, t);
 
-    const cancelFn = (cancelTimeMs) => {
-        setTimeout(() => {
-            clearTimeout(timeoutId);
-        }, cancelTimeMs)
+    const cancelFn = () => {
+        clearTimeout(timeoutId);
     }; 
 
     return cancelFn;
