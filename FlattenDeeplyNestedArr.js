@@ -7,18 +7,20 @@ const matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 const flattenedMatrix = matrix.flat();
 // Result: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+// THE FLAT METHOD TAKES AN ARGUMENT WHICH SPECIFIES THE 'DEPTH'
+// TO WHICH THE ARR SHOULD BE FLATTENED
 const nestedArray = [1, [2, [3, [4, 5]]]];
 const flattenedArray = nestedArray.flat(2);
 // Result: [1, 2, 3, 4, 5]
 
-// THE FLAT METHOD TAKES AN ARGUMENT WHICH SPECIFIES THE 'DEPTH'
-// TO WHICH THE ARR SHOULD BE FLATTENED
+const authors = {
+    author1Posts: [ { title: 'JavaScript' }, { title: 'ES6' } ],
+    author2Posts: [ { title: 'Node.js' }, { title: 'React' } ],
+};
+const allPosts = Object.values(authors).flat();
+// [ { title: 'JavaScript' }, { title: 'ES6' }, { title: 'Node.js' }, { title: 'React' } ]
 
-const nestedData = { user: { details: { name: 'John', age: 25 } } };
-const flattenedData = Object.values(nestedData).flat();
-// Result: ['John', 25]
 // HOW IT WORKS UNDER THE HOOD
-
 const flat = function (arr, n) {
     if (n == 0) return arr;
     const flattenedArr = [];
