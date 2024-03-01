@@ -45,19 +45,16 @@ const log = (...args) => {
 };
 const throttledLog = throttle(log, 1000); // 1-second throttle interval
 // Time 0:
-console.log("Time 0:");
 throttledLog(1, 2); // Executes immediately
 // Output: Function called with args: [1, 2]
 
 // Time 0.3 (simulated):
 setTimeout(() => {
-    console.log("Time 0.3:");
     throttledLog(3, 4); // Queued
 }, 300);
 
 // Time 0.7 (simulated):
 setTimeout(() => {
-    console.log("Time 0.7:");
     throttledLog(5, 6); // Queued
 }, 700);
 
